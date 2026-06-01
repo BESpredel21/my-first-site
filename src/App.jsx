@@ -1,5 +1,5 @@
 import React, { lazy, Suspense } from 'react'
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
+import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 
 const RoleSelectionPage = lazy(() => import('./pages/RoleSelectionPage'))
 const EmployeeLoginPage = lazy(() => import('./pages/EmployeeLoginPage'))
@@ -20,7 +20,7 @@ function PageLoader() {
 
 function App() {
   return (
-    <Router basename={import.meta.env.BASE_URL}>
+    <Router>
       <Suspense fallback={<PageLoader />}>
         <Routes>
           <Route path="/" element={<RoleSelectionPage />} />
